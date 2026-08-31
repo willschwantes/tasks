@@ -12,7 +12,7 @@ function App(): React.JSX.Element {
                 automatically reload.
             </p>
             <p>
-                This is Will Schwantes's fork!
+                This is Will Schwantes&apos;s fork!
             </p>
         </div>
     );
