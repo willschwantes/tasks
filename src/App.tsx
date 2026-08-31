@@ -18,10 +18,16 @@ function App(): React.JSX.Element {
             </p>
             <img
                 src={pups}
-                alt="My dogs from left to right, Remi, an English Golden Retriever; Leo, a Bernese Mountain Dog; and Lily, a Leonberger."
+                alt="My dogs at the beach. Leo is lunging at the camera while Remi and Lily are sitting down."
                 style={{width:"50%",padding:"1em"}}
             />
-            <figcaption>These are my dogs, Remi, Leo, and Lily.</figcaption>
+            <p>These are my dogs, (from left to right):
+                <ul>
+                    <li>Remi, an English Golden Retriever</li>
+                    <li>Leo, a Bernese Mountain Dog</li>
+                    <li>Lily, a Leonberger</li>
+                </ul>
+            </p>
         </div>
     );
 }
