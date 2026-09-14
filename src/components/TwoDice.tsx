@@ -1,0 +1,45 @@
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import { Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
+
+/**
+ * Here is a helper function you *must* use to "roll" your die.
+ * The function uses the builtin `random` function of the `Math`
+ * module (which returns a random decimal between 0 up until 1) in order
+ * to produce a random integer between 1 and 6 (inclusive).
+ */
+export function d6(): number {
+    return 1 + Math.floor(Math.random() * 6);
+}
+
+export function TwoDice(): React.JSX.Element {
+    const [leftDice, rollLeft] = useState<number>(d6());
+    const [rightDice, rollRight] = useState<number>(d6());
+    
+    return (
+    <div>
+        Two Dice
+        <br></br>
+        <Container style={{width: "50%"}}>
+            <Row>
+                <Col><span data-testid="left-die">{leftDice}</span></Col>
+                <Col><span data-testid="right-die">{rightDice}</span></Col>
+            </Row>
+            <Row>
+                <Button onClick={() => {rollLeft(d6())}} style={{width:"50%"}}>Roll Left</Button>
+                <Button onClick={() => {rollRight(d6())}} style={{width:"50%"}}>Roll Right</Button>
+            </Row>
+        </Container>
+        {leftDice === rightDice ? (
+            leftDice === 1 && rightDice === 1 ? (
+                <span>Lose!</span>
+            ) : (
+                <span>Win!</span>
+            )
+        ) : (
+            <span></span>
+        )}
+    </div>);
+}
